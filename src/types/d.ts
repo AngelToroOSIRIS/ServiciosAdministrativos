@@ -1,0 +1,1 @@
+export interface Participante { nombre: string; numPart: string; imagen?: string; id: number} 
