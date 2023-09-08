@@ -34,7 +34,7 @@ const Header = () => {
 				<ul className="hidden lg:flex flex-col items-center justify-center font-medium lg:flex-row ">
 					<li>
 						<button
-							className="w-full transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() => router.push("/")}
 						>
 							Inicio
@@ -42,7 +42,7 @@ const Header = () => {
 					</li>
 					<li>
 						<button
-							className="w-full py-2 pl-3 pr-4 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
 								router.push(
 									"https://empleados.escuelaing.edu.co/intraeci/AdminConvoca"
@@ -54,7 +54,7 @@ const Header = () => {
 					</li>
 					<li>
 						<button
-							className="w-full py-2 pl-3 pr-4 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
 								router.push(
 									"https://siaci-escuelaing.azurewebsites.net/Account/Login?ReturnUrl=%2F"
@@ -66,7 +66,7 @@ const Header = () => {
 					</li>
 					<li>
 						<button
-							className="w-full py-2 pl-3 pr-4 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
 								router.push(
 									"https://empleados.escuelaing.edu.co/intraeci/InicioPlanes"
@@ -78,7 +78,7 @@ const Header = () => {
 					</li>
 					<li>
 						<button
-							className="w-full py-2 pl-3 pr-4 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
 								router.push(
 									"https://empleados.escuelaing.edu.co/intraeci/presupuesto"
@@ -90,7 +90,7 @@ const Header = () => {
 					</li>
 					<li>
 						<button
-							className="w-full py-2 pl-3 pr-4 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
 								router.push("https://horus.escuelaing.edu.co/planeacion/")
 							}
@@ -98,16 +98,16 @@ const Header = () => {
 							Proyectos
 						</button>
 					</li>
-					<li>
+					{/* <li>
 						<button
-							className="w-full py-2 pl-3 pr-4 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
 								router.push("http://copernico.escuelaing.edu.co/software/")
 							}
 						>
 							Descargas
 						</button>
-					</li>
+					</li> */}
 				</ul>
 					<Menu />
 

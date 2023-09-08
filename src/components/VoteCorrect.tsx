@@ -5,8 +5,7 @@ import { Fragment, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function VoteCorrect() {
-
-	const router = useRouter()
+	const router = useRouter();
 	let [IsOpenInstruc, setIsopenVoteCorrect] = useState(false);
 
 	function closeVoteCorrect() {
@@ -65,11 +64,11 @@ export default function VoteCorrect() {
 											<br />
 										</p>
 									</div>
-
 									<button
 										type="button"
 										className="inline-flex mt-5 justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium "
-										onClick={() => router.push("/votaciones?voto=true")}								>
+										onClick={() => router.push("/votaciones?voto=true")}
+									>
 										Entendido
 									</button>
 								</Dialog.Panel>

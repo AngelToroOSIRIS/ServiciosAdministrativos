@@ -24,9 +24,9 @@ export default function Index({ searchParams }: any) {
 				<Button route="/votaciones" text="Votaciones Administrativas" />
 			</div>
 
-			<div className="margin-header justify-center text-center h-[90px]">
+			<div className=" justify-center text-center mt-[2%]">
 				<button
-					className="mx-5 mt-[30px] w-[20%] max-w-xs h-12 bg-default-white rounded-lg text-primary border-2 hover:text-default-white hover:bg-primary"
+					className="mx-5 w-[20%] max-w-xs h-12 bg-default-white rounded-lg text-primary border-2 hover:text-default-white hover:bg-primary"
 					onClick={() => router.push("/")}
 				>
 					Volver

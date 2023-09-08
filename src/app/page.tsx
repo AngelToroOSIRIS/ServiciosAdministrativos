@@ -40,8 +40,10 @@ export default async function Index() {
 				<Button route="/documentos" text="Documentos institucionales" />
 				<Button route="https://app.powerbi.com/view?r=eyJrIjoiZDllYzQyMzEtM2IzMS00MWYxLWJjYTktMjkzMzEzZDdmMDcyIiwidCI6IjUwNjQwNTg0LTJhNDAtNDIxNi1hODRiLTliM2VlMGYzZjZjZiIsImMiOjR9" text="Boletín estadístico" />
 				<Button route="https://siaci-escuelaing.azurewebsites.net/Account/Login" text="Encuesta de Autoevaluación" />
+				<button disabled className="hidden lg:block"></button>
 				<Button route="https://empleados.escuelaing.edu.co/intraeci/FormUnete" text="Fondo de solidaridad" />
 			</div>
+
 		</main>
 	);
 }
