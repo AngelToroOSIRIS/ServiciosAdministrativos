@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const infoBotones: { text: string; link: string, otherClass?:string }[] = [
+const infoBotones: { text: string; link: string; otherClass?: string }[] = [
 	{
 		text: "Anexos informe de gestión 2011",
 		link: "http://tycho.escuelaing.edu.co/contenido/documentos/estatutos/AnexosInformeGestion2011.pdf",
@@ -89,21 +89,19 @@ const infoBotones: { text: string; link: string, otherClass?:string }[] = [
 
 const Documents = () => {
 	return (
-		<>
-			<div
-				className="w-[95%] max-w-[1200px] gap-3 sm:grid lg:grid-cols-2 sm:grid-cols-1 flex flex-col mx-auto mt-[1%] justify-center items-center rounded-xl 
-				shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] p-5 mb-40"
-			>
-				{infoBotones.map((item) => (
-					<a
-						className={"w-full py-2 lg:text-base text-center rounded-xl border-2 border-primary bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white " + item.otherClass}
-						href={item.link}
-					>
-						{item.text}
-					</a>
-				))}
-			</div>
-		</>
+		<div className="mt-9 w-[95%] max-w-[1200px]  gap-3 sm:grid lg:grid-cols-2 sm:grid-cols-1 flex flex-col mx-auto justify-center items-center rounded-xl p-3">
+			{infoBotones.map((item) => (
+				<a
+					className={
+						" w-full py-2 lg:text-base text-center opacity-100 rounded-xl border-2 border-primary bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white " +
+						item.otherClass
+					}
+					href={item.link}
+				>
+					{item.text}
+				</a>
+			))}
+		</div>
 	);
 };
 

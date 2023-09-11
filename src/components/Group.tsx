@@ -47,7 +47,7 @@ const Group = ({ participantes }: Props) => {
 	return (
 		<RadioGroup value={selected} onChange={guardarParticipante}>
 			<RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-			<div className="mx-auto w-[95%] max-w-lg mt-5 lg:max-w-[1125px] grid grid-cols-1 gap-x-[50px] gap-y-5 lg:grid-cols-2">
+			<div className="mx-auto w-[95%] max-w-lg lg:max-w-[1125px] grid grid-cols-1 gap-x-[50px] gap-y-5 lg:grid-cols-2">
 				{participantes.map((participante) => (
 					<RadioGroup.Option
 						key={participante.nombre}

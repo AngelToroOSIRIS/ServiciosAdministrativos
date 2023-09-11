@@ -21,9 +21,9 @@ export default function VoteCorrect() {
 			<button
 				type="button"
 				onClick={openVoteCorrect}
-				className=" mt-[30px] mx-5 max-w-xs h-12 w-[20%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+				className=" mt-[30px] mx-5 max-w-xs h-12 w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 			>
-				Enviar Voto
+				Enviar Votos
 			</button>
 			<Transition appear show={IsOpenInstruc} as={Fragment}>
 				<Dialog as="div" className="relative z-10" onClose={closeVoteCorrect}>

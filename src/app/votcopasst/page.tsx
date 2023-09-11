@@ -80,23 +80,23 @@ export default function Home() {
 				</div>
 			</Modal>
 			<Header />
-			<div className="margin-header justify-center text-center">
-				<h1 className="m-3 text-3xl text-primary font-bold">
+			<div className="mt-[90px] justify-center text-center">
+				<h1 className=" text-3xl text-primary font-bold">
 					Votación COPASST
 				</h1>
-				<div className="justify-center my-8 mx-[10%] ">
-					<p className="text-lg">Recuerde que solo tiene un intento de votación, debe escoger 2 opciones máximo y darle en el botón <b>Enviar Voto</b></p>
+				<div className="justify-center m-8 ">
+					<p className="text-lg">Bienvenido a la <b>Votación de COPASST</b> , recuerde que solo tiene un intento de votación, debe escoger 2 opciones máximo y darle en el botón <b>Enviar Votos</b></p>
 				</div>
 			</div>
 			{/* <div className=" mx-auto bg-soft-white brightness-90 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] rounded-lg w-[450px] p-1 z-20">
 				<Instruc/>
 			</div> */}
 			<Group participantes={participantes} />
-			<div className="flex content-center justify-center mx-auto mt-5 mb-[32%] w-[80%]">
+			<div className="flex content-center justify-center mx-auto mt-5 w-[80%]">
 				<VoteCorrect />
 				<button
-					className="mx-5 mt-[30px] w-[20%] max-w-xs h-12 bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-					onClick={() => router.push("/")}
+					className="mx-5 mt-[30px] w-[23%] max-w-xs h-12 mb-[180px] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+					onClick={() => router.push("/votaciones")}
 				>
 					Volver
 				</button>

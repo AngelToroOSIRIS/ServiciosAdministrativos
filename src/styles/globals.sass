@@ -1,9 +1,6 @@
 .margin-header
-    margin-block-start: 100px
-
-@media (max-width: 1023px)
-    .margin-header
-        margin-block-start: 145px
+    padding-block-start: 80px
+    padding-block-end: 125px
 
 .container-class
     margin-inline: auto
@@ -11,4 +8,35 @@
     max-width: 1600px
 
 .main-class
-    margin-block-end:250px
+    margin-block-end:170px
+
+.back
+    background: url('../../public/images/bloque_i.jpg')
+    background-size: cover
+    background-position: center
+    background-repeat: no repeat
+
+.back2
+    background: url('../../public/images/admin_1.jpg')
+    background-size: cover
+    background-position: center
+    background-repeat: no repeat
+
+.back3
+    background: url('../../public/images/prof_2.jpg')
+    position: absolute
+    background-size: cover
+    background-position: center
+    background-repeat: no repeat
+
+@media (max-width: 1023px)
+    .back
+        background: none
+    .back2
+        background: none
+    .back3
+        background: none
+    .margin-header
+        padding-block-end: 215px
+    .main-class
+        margin-block-end:200px
