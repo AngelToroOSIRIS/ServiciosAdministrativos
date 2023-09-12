@@ -12,7 +12,7 @@ export default function Index({ searchParams }: any) {
 					<div className="main-class justify-center items-center text-center">
 						<h1 className=" text-3xl text-primary font-bold">Votaciones</h1>
 					</div>
-						<div className="bg-default-white mx-auto w-[200px] min-w-[15%] rounded-lg h-[30px] justify-center items-center text-center text-xl  mt-8 lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6">
+						<div className="bg-default-white mx-auto w-[200px] min-w-[15%] rounded-lg h-[30px] justify-center items-center text-center text-xl  mt-8 lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6 transition-all">
 							<h2 className="">
 								Elija la votación:
 							</h2>
@@ -28,7 +28,7 @@ export default function Index({ searchParams }: any) {
 					
 					<div className=" justify-center text-center mt-[2%]">
 						<button
-							className="mx-5 w-[7%] min-w-[70px] h-12 bg-default-white border-2 rounded-lg border-primary text-primary hover:text-default-white hover:bg-primary"
+							className="mx-5 w-[5%] min-w-[70px] h-11 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white rounded-lg  text-primary hover:text-default-white hover:bg-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() => router.push("/")}
 							>
 							Volver

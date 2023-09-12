@@ -95,7 +95,7 @@ export default function Home() {
 			<div className="flex content-center justify-center mx-auto mt-5 w-[80%]">
 				<VoteCorrect />
 				<button
-					className="mx-5 mt-[30px] w-[23%] max-w-xs h-12 mb-[180px] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+					className="mx-5 mt-[30px] w-[5%] max-w-xs h-11 mb-[180px] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 					onClick={() => router.push("/votaciones")}
 				>
 					Volver
