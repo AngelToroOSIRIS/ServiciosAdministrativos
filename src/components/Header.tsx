@@ -109,7 +109,7 @@ const Header = () => {
 						</button>
 					</li> */}
 				</ul>
-					<Menu />
+				<Menu />
 
 				{/* Botón de cerrar sesión */}
 				<section className="h-[65px] flex justify-start">

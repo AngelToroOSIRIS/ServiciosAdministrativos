@@ -21,7 +21,7 @@ export default async function Index() {
 	}
 
 	return (
-		<main className="main-class">
+		<main className="main-class ">
 			<Header />
 			<div className="mt-20 mx-[500px] justify-center items-center rounded-xl">
 				<Image

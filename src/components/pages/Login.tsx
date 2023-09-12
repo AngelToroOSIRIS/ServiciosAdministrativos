@@ -54,16 +54,16 @@ export default function Login({ searchParams }: any) {
 					</div>
 				</Modal>
 			)}
-			<div className="mx-auto p-200 w-[95%] max-w-xs">
+			<div className="mx-auto p-200 w-[95%] max-w-xs justify-center items-center">
 				<p className=" text-3xl text-center my-12 font-semibold">
 					Inicio de Sesión
 				</p>
-				<button
-					className="w-[95%] max-w-xs h-12 bg-primary text-off-white py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-					onClick={() => signIn("azure-ad", { callbackUrl: "/" })}
-				>
-					<i className="bi bi-microsoft mr-2"></i> Ingresa con Microsoft
-				</button>
+					<button
+						className="w-[95%] max-w-xs h-12 bg-primary text-off-white py-2 px-4 font-semibold  rounded-xl transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+						onClick={() => signIn("azure-ad", { callbackUrl: "/" })}
+					>
+						<i className="bi bi-microsoft mr-2"></i> Ingresa con Microsoft
+					</button>
 			</div>
 		</>
 	);

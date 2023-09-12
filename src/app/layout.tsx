@@ -29,7 +29,7 @@ export default function RootLayout({
 					<meta name="theme-color" content="#990000" />
 					<meta name="description" content="ECIJG" />
 				</head>
-				<body className={inter.className + "relative"}>
+				<body className={inter.className + "relative bg-[#eeeded]"}>
 					<Toaster
 						position="bottom-right"
 						toastOptions={{
