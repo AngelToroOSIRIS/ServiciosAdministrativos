@@ -20,6 +20,7 @@ async function fetchFn(endpoint: string, options?: Options) {
 				},
 				cache: cache ?? "default",
 				body: body && JSON.stringify(body),
+
 			}
 		);
 
