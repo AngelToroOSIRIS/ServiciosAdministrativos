@@ -91,7 +91,7 @@ const Documents = () => {
 	return (
 		<div className="mt-9 w-[87%] max-w-[1200px] gap-x-20 sm:grid lg:grid-cols-2 sm:grid-cols-1 flex flex-col mx-auto justify-center items-center rounded-xl p-3">
 			{infoBotones.map((item) => (
-				<a
+				<a target="_blank"
 					className={
 						" w-full py-4 lg:text-base text-center opacity-100 rounded-xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white " +
 						item.otherClass

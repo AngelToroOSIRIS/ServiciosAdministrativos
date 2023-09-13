@@ -4,8 +4,6 @@ import { RadioGroup } from "@headlessui/react";
 import { Participante } from "@/types/d";
 import Image from "next/image";
 import { CheckIcon } from "@heroicons/react/20/solid";
-import Modal from "@/components/Modal";
-import { useRouter } from "next/navigation";
 
 interface Props {
 	participantes: Participante[];
@@ -57,7 +55,7 @@ const Group = ({ participantes }: Props) => {
 						<Image
 							className="max-w-[100px] max-h-[100px] rounded-xl"
 							src={`/images/participantes/${participante.imagen}`}
-							alt={participante.nombre}
+							alt={""}
 							priority={true}
 							width={100}
 							height={100}
