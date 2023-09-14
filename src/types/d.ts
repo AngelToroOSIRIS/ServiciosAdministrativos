@@ -1,1 +1,1 @@
-export interface Participante { nombre: string; numPart: string; imagen?: string; id: number} 
+export interface Candidato { id: number; nombre: string; nroton: number; narc?: string; } 

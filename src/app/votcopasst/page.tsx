@@ -1,106 +1,73 @@
 "use client";
 
 import Header from "@/components/Header";
-import { Participante } from "@/types/d";
+import { Candidato} from "@/types/d";
 import VoteCorrect from "@/components/VoteCorrect";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal";
 import { useState } from "react";
 import Instruc from "@/components/Instruc";
 import Group from "@/components/Group";
+import fetchFn from "@/libs/fetchFn";
+import { useEffect } from "react";
 
-export default function Home() {
-	const participantes: Participante[] = [
-		{
-			id : 1,
-			nombre: "Hugo Tarazona Villamil",
-			numPart: "01",
-			imagen: "htarazona.gif",
-		},
-		{
-			id : 2,
-			nombre: "Luisa Fernanda Morales Becerra",
-			numPart: "02",
-			imagen: "lmorales.gif",
-		},
-		{
-			id : 3,
-			nombre: "Luz mery Valencia Carvajal",
-			numPart: "03",
-			imagen: "lvalencia.gif",
-		},
-		{
-			id : 4,
-			nombre: "Marisol Paez Galindo",
-			numPart: "04",
-			imagen: "mpaez.gif",
-		},
-		{
-			id : 5,
-			nombre: "Nury Del Rosario Forero Hurtado",
-			numPart: "05",
-			imagen: "nrosario.gif",
-		},
-		{
-			id : 6,
-			nombre: "Valeria Castro Hernandez",
-			numPart: "06",
-			imagen: "vcastro.gif",
-		},
-		{
-			id : 7,
-			nombre: "Viviana Catalina Torres Organista",
-			numPart: "07",
-			imagen: "vtorres.gif",
-		},
-		{
-			id : 8,
-			nombre: "Voto en blanco",
-			numPart: "08",
-			imagen: "vblanco.png",
-		},
-	];
+export default function Home({ searchParams }: any) {
+	const [loading, setloading] = useState(true)
+	const [dataCandi, setDataCandi] = useState<Candidato[]>([])
+	const getDataCandi =async () => {
+		const response = await fetchFn('/candidatos')
+		if (response.error || response.code !== 200) {
+			return
+		}
+		setDataCandi(response.data)
+		console.log(response.data)
+		setloading(false)
+	}
+
+	useEffect(() => {
+		getDataCandi()
+	  }, [])
+
 	const router = useRouter();
 	let [IsOpenInstruc, setIsOpenInstruc] = useState<boolean>(true);
 	return (
 		<main className="container-class h-[100vh]">
-			<Modal isOpen={IsOpenInstruc} setIsOpen={setIsOpenInstruc}>
-				<div className="w-full max-w-md transform overflow-hidden rounded-2xl bg-default-white p-6 text-left align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
-					<Instruc />
-					
-					<div className="mt-4">
-						<button
-							type="button"
-							className="inline-flex justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium "
-							onClick={() => setIsOpenInstruc(false)}
-						>
-							Entendido
-						</button>
+			{!loading &&<>
+				<Modal isOpen={IsOpenInstruc} setIsOpen={setIsOpenInstruc}>
+					<div className="w-full max-w-md transform overflow-hidden rounded-2xl bg-default-white p-6 text-left align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
+						<Instruc />
+						
+						<div className="mt-4">
+							<button
+								type="button"
+								className="inline-flex justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium "
+								onClick={() => setIsOpenInstruc(false)}
+							>
+								Entendido
+							</button>
+						</div>
+					</div>
+				</Modal>
+				<Header />
+				<div className="mt-[90px] justify-center text-center">
+					<h1 className=" text-3xl text-primary font-bold">
+						Votación COPASST
+					</h1>
+					<div className="justify-center m-8 ">
+						<p className="text-lg">Bienvenido a la <b>Votación de COPASST</b> , recuerde que solo tiene un intento de votación, debe escoger 2 opciones máximo y darle en el botón <b>Enviar Votos</b></p>
 					</div>
 				</div>
-			</Modal>
-			<Header />
-			<div className="mt-[90px] justify-center text-center">
-				<h1 className=" text-3xl text-primary font-bold">
-					Votación COPASST
-				</h1>
-				<div className="justify-center m-8 ">
-					<p className="text-lg">Bienvenido a la <b>Votación de COPASST</b> , recuerde que solo tiene un intento de votación, debe escoger 2 opciones máximo y darle en el botón <b>Enviar Votos</b></p>
+				<Group candidatos={dataCandi} />
+				<div className="flex content-center justify-center mx-auto mt-5 w-[80%]">
+					<VoteCorrect />
+					<button
+						className=" mt-[30px] mx-5 max-w-xs h-12 w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+						onClick={() => router.push("/votaciones")}
+					>
+						Volver
+					</button>
 				</div>
-			</div>
-			{/* <div className=" mx-auto bg-soft-white brightness-90 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] rounded-lg w-[450px] p-1 z-20">
-				<Instruc/>
-			</div> */}
-			<Group participantes={participantes} />
-			<div className="flex content-center justify-center mx-auto mt-5 w-[80%]">
-				<VoteCorrect />
-				<button
-					className=" mt-[30px] mx-5 max-w-xs h-12 w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-					onClick={() => router.push("/votaciones")}
-				>
-					Volver
-				</button>
-			</div>
+			</>}
 			
 		</main>
 		

@@ -2,9 +2,9 @@
 
 import Header from "@/components/Header";
 import { useRouter } from "next/navigation";
-import Button from "@/components/Button";
 import {useEffect, useState} from "react";
 import fetchFn from "@/libs/fetchFn";
+import ButtonVot from "@/components/pages/ButtonVot";
 
 export default function Index({ searchParams }: any) {
 	const [loading, setloading] = useState(true)
@@ -36,10 +36,10 @@ export default function Index({ searchParams }: any) {
 								</h2>
 							</div>
 						<div
-							className="flex w-[95%] gap-5 max-w-[1200px] mx-auto mt-[4%] justify-center items-center rounded-xl 
+							className="flex w-[95%] gap-5 max-w-[1200px]  mx-auto mt-[4%] justify-center items-center rounded-xl 
 							 p-5 mb-10"
 							>
-							{data.map((item:any)=><Button key={item.id} route="/votcopasst" text={item.nombre} />)}
+							{data.map((item:any)=><ButtonVot key={item.id} route="/votcopasst" text={item.nombre} />)}
 						</div>
 						<div className=" justify-center text-center mt-[2%]">
 							<button
