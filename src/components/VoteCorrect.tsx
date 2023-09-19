@@ -1,8 +1,11 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { useRouter } from "next/navigation";
+import fetchFn from "@/libs/fetchFn";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 export default function VoteCorrect() {
 	const router = useRouter();
@@ -16,12 +19,33 @@ export default function VoteCorrect() {
 		setIsopenVoteCorrect(true);
 	}
 
+	const { data: session, status } = useSession();
+	const [loading, setloading] = useState(true);
+	const [data, setData] = useState([]);
+	const getData = async () => {
+		const response = await fetchFn(`/usuarios?email=`, {
+			method:"POST", body: {
+				email: ''
+			}
+		});
+
+		if (response.error || response.code !== 200) {
+			return;
+		}
+		setData(response.data);
+		setloading(false);
+	};
+
+	useEffect(() => {
+		if (status === "authenticated") getData();
+	}, [status]);
+
 	return (
 		<>
 			<button
 				type="button"
 				onClick={openVoteCorrect}
-				className=" mt-[30px] mx-5 max-w-xs h-12 w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+				className=" mt-[30px] mb-48 mx-5 max-w-xs w-[25%] h-12 lg:w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 			>
 				Enviar Votos
 			</button>

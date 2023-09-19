@@ -30,7 +30,7 @@ export default function Index({ searchParams }: any) {
 			
 				<div className="justify-center text-center h-[90px]">
 					<button
-						className="mx-5 mt-[30px] w-[7%] min-w-[70px] max-w-xs h-12 font-semibold bg-default-white  rounded-lg  text-primary  hover:text-default-white hover:bg-primary lg:border-none hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+						className="mx-5 mt-[30px] w-[7%] min-w-[70px] max-w-xs h-12 lg:text-base text-center opacity-100 rounded-xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white "
 						onClick={() => router.push("/")}
 					>
 						Volver

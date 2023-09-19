@@ -21,6 +21,7 @@ async function fetchFn(endpoint: string, options?: Options) {
 				body: body && JSON.stringify(body),
 			}
 		);
+		
 
 		const response = await res.json();
 

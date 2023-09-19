@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Button from "@/components/Button";
 import { getServerSession } from "next-auth";
 import fetchFn from "@/libs/fetchFn";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default async function Index() {
@@ -10,8 +10,7 @@ export default async function Index() {
 	if (session) {
 		const email = session.user?.email || "";
 		const domain = email.split("@")[1];
-
-		// if (domain === "mail.escuelaing.edu.co") {
+		
 		if (domain === "escuelaing.edu.co") {
 			const response = await fetchFn(`/personas?email=${email}`);
 			if (response.code === 400) return redirect("/logout?error=auth");
@@ -20,6 +19,8 @@ export default async function Index() {
 		}
 	}
 
+
+	
 	return (
 		<main className="main-class ">
 			<Header />
