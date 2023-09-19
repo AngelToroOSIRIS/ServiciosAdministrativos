@@ -16,13 +16,13 @@ export default function Home({ searchParams }: any) {
 		<main className="">
 			<Header />
 			<div className="mt-[90px] justify-center text-center">
-				<h1 className=" text-3xl text-primary font-bold">Votación COPASST</h1>
+				<h1 className=" text-3xl text-primary font-bold">Votación Comité de Convivencia Laboral</h1>
 				<div className="justify-center m-8 ">
 					<p></p>
 					<p className="text-lg">
-						Bienvenido a la <b>Votación de COPASST</b> , recuerde que solo tiene
-						un intento de votación, debe escoger 2 opciones máximo y darle en el
-						botón <b>Enviar Votos</b>
+						Bienvenido a la <b>Votación de Comité de Convivencia Laboral</b> , recuerde que solo tiene
+						un intento de votación, debe escoger una opción y darle en el
+						botón <b>Enviar Voto</b>
 					</p>
 				</div>
 			</div>

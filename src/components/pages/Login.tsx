@@ -15,10 +15,10 @@ export default function Login({ searchParams }: any) {
 		const error = searchParams.error ? searchParams.error : false;
 		if (error) {
 			if (error === 'auth') {
-				toast.error("su cuenta no esta activa, sesión cerrada.", {id: "error1"})
+				toast.error("su cuenta no esta activa, por favor cerrar sesión.", {id: "error1"})
 			}
 			if (error === 'rol') {
-				toast.error("usted esta usando una cuenta de estudiante, sesión cerrada.", {id: "error2"})
+				toast.error("usted esta usando una cuenta de estudiante, por favor cerrar sesión.", {id: "error2"})
 			}
 			router.push("/login")
 		}

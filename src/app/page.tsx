@@ -10,7 +10,7 @@ export default async function Index() {
 	if (session) {
 		const email = session.user?.email || "";
 		const domain = email.split("@")[1];
-		
+
 		if (domain === "escuelaing.edu.co") {
 			const response = await fetchFn(`/personas?email=${email}`);
 			if (response.code === 400) return redirect("/logout?error=auth");
@@ -18,9 +18,6 @@ export default async function Index() {
 			return redirect("/logout?error=rol");
 		}
 	}
-
-
-	
 	return (
 		<main className="main-class ">
 			<Header />

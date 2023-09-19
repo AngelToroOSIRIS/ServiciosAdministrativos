@@ -11,7 +11,6 @@ const Header = () => {
 	const router = useRouter();
 	const { data, status } = useSession();
 	const [collapse, setCollapse] = useState(true);
-
 	const changeCollapse = () => setCollapse(!collapse);
 	const user = data?.user ?? {
 		name: "default",
