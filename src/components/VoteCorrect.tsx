@@ -24,9 +24,10 @@ export default function VoteCorrect() {
 	const [data, setData] = useState([]);
 	const getData = async () => {
 		const response = await fetchFn(`/usuarios?email=`, {
-			method:"POST", body: {
-				email: ''
-			}
+			method: "POST",
+			body: {
+				email: "",
+			},
 		});
 
 		if (response.error || response.code !== 200) {

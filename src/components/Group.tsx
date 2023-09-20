@@ -13,7 +13,7 @@ const Group = ({ candidatos }: Props) => {
 	const [selected, setSelected] = useState<Candidato[]>([]);
 	const classCard =
 		" cursor-pointer flex items-center p-6 text-default-white bg-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
-		const classActiveCard =
+	const classActiveCard =
 		" cursor-pointer flex items-center p-6 text-default-white bg-dark-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
 
 	const guardarCandidato = (candidatos: any) => {
@@ -22,9 +22,7 @@ const Group = ({ candidatos }: Props) => {
 		);
 
 		if (candidatoEncontrado) {
-			return setSelected(
-				selected.filter((item) => item.id !== candidatos.id)
-			);
+			return setSelected(selected.filter((item) => item.id !== candidatos.id));
 		}
 
 		if (selected.length >= 2) {
@@ -39,12 +37,11 @@ const Group = ({ candidatos }: Props) => {
 			(item) => item.id === idCandidato
 		);
 
-		return candidatoEncontrado ? classActiveCard: classCard;
+		return candidatoEncontrado ? classActiveCard : classCard;
 	};
 
 	return (
 		<RadioGroup value={selected} onChange={guardarCandidato}>
-			<RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
 			<div className="mx-auto w-[95%] max-w-lg lg:max-w-[1125px] grid grid-cols-1 gap-x-[50px] gap-y-5 lg:grid-cols-2">
 				{candidatos.map((candidato) => (
 					<RadioGroup.Option
@@ -66,9 +63,7 @@ const Group = ({ candidatos }: Props) => {
 						</div>
 
 						{!selected.find((item) => item.id === candidato.id) && (
-							<div className="rounded-full w-[43px] h-[31px] opacity-40 bg-default-white">
-								
-							</div>
+							<div className="rounded-full w-[43px] h-[31px] opacity-40 bg-default-white"></div>
 						)}
 
 						{selected.find((item) => item.id === candidato.id) && (
