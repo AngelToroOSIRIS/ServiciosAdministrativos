@@ -10,7 +10,7 @@ const getData = async () => {
 		console.log(response.data)
 }
 
-export default function Home({ searchParams }: any) {
+export default function CclPage() {
 	
 	return (
 		<main className="">
@@ -21,7 +21,7 @@ export default function Home({ searchParams }: any) {
 					<p></p>
 					<p className="text-lg">
 						Bienvenido a la <b>Votación de Comité de Convivencia Laboral</b> , recuerde que solo tiene
-						un intento de votación, debe escoger una opción y darle en el
+						un intento de votación, debe escoger una opcin y darle en el
 						botón <b>Enviar Voto</b>
 					</p>
 				</div>

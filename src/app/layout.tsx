@@ -31,7 +31,7 @@ export default function RootLayout({
 				</head>
 				<body className={inter.className + "relative bg-[#eeeded]"}>
 					<Toaster
-						position="bottom-right"
+						position="bottom-center"
 						toastOptions={{
 							style: {
 								userSelect: "none",

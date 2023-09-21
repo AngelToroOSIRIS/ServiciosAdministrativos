@@ -14,15 +14,20 @@ export default function Login({ searchParams }: any) {
 	useEffect(() => {
 		const error = searchParams.error ? searchParams.error : false;
 		if (error) {
-			if (error === 'auth') {
-				toast.error("su cuenta no esta activa, por favor cerrar sesión.", {id: "error1"})
+			if (error === "auth") {
+				toast.error("su cuenta no esta activa, por favor cerrar sesión.", {
+					position: "bottom-center",
+					id: "error1",
+				});
 			}
-			if (error === 'rol') {
-				toast.error("usted esta usando una cuenta de estudiante, por favor cerrar sesión.", {id: "error2"})
+			if (error === "rol") {
+				toast.error(
+					"usted esta usando una cuenta de estudiante, por favor cerrar sesión.",
+					{ position: "bottom-center", id: "error2" }
+				);
 			}
-			router.push("/login")
+			router.push("/login");
 		}
-
 	}, []);
 	return (
 		<>
@@ -58,23 +63,22 @@ export default function Login({ searchParams }: any) {
 				<p className=" text-3xl text-center my-12 font-semibold">
 					Inicio de Sesión
 				</p>
-					<button
-						className="w-[95%] max-w-xs h-12 bg-primary text-off-white py-2 px-4 font-semibold  rounded-xl transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-						onClick={() => signIn("azure-ad", { callbackUrl: "/" })}
-					>
-						<i className="bi bi-microsoft mr-2"></i> Ingresa con Microsoft
-					</button>
-					<button 
+				<button
+					className="w-[95%] max-w-xs h-12 bg-primary text-off-white py-2 px-4 font-semibold  rounded-xl transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+					onClick={() => signIn("azure-ad", { callbackUrl: "/" })}
+				>
+					<i className="bi bi-microsoft mr-2"></i> Ingresa con Microsoft
+				</button>
+				<button
 					className="w-[95%] mt-5 max-w-xs h-12 bg-primary text-off-white py-2 px-4 font-semibold  rounded-xl transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-				onClick={() =>
-					router.push(
-						"https://login.microsoftonline.com/common/oauth2/v2.0/logout"
-					)
-				}
-				
-			>
-				Cerrar sesión desde Microsoft
-			</button>
+					onClick={() =>
+						router.push(
+							"https://login.microsoftonline.com/common/oauth2/v2.0/logout"
+						)
+					}
+				>
+					Cerrar sesión desde Microsoft
+				</button>
 			</div>
 		</>
 	);

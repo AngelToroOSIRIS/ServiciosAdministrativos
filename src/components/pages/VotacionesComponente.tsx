@@ -60,7 +60,7 @@ export default function VotacionesComponente() {
 							<ButtonVot
 								disabled={item.estado_voto === "1"}
 								key={item.id}
-								route="/votcopasst"
+								route={item.ruta ?? "/"}
 								text={item.nombre}
 							/>
 						))}
