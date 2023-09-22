@@ -9,12 +9,16 @@ interface Props {
 	children: React.ReactNode;
 }
 
-export default function Modal({ children, isOpen, setIsOpen}: Props) {
-
+export default function Modal({ children, isOpen, setIsOpen }: Props) {
 	return (
 		<>
 			<Transition appear show={isOpen} as={Fragment}>
-				<Dialog as="div" className="relative z-50" onClose={() => {}} open={isOpen}>
+				<Dialog
+					as="div"
+					className="relative z-50"
+					onClose={() => {}}
+					open={isOpen}
+				>
 					<Transition.Child
 						as={Fragment}
 						enter="ease-out duration-300"

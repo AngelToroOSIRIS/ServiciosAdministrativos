@@ -1,21 +1,30 @@
 import Header from "@/components/Header";
 import Candidatos from "@/components/pages/Candidatos";
 import fetchFn from "@/libs/fetchFn";
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-const getData = async () => {
-	const response = await fetchFn("/copasst/candidatos");
-
+const getData = async (email:string) => {
+	const response = await fetchFn(`/copasst/estado_voto?email=${email}`);
 	if (response.error || response.code !== 200) {
-		return redirect("/votaciones");
+		return redirect("/votaciones?error=server");
+	}
+	if (response.data.estado === "1") {
+		return redirect("/votaciones?error=e_copasst")
 	}
 
-	return response.data;
+	const candidatos = await fetchFn(`/copasst/candidatos`);
+	return candidatos.data;
 };
 
 export default async function CopasstPage() {
-	const candidatos = await getData();
-
+	const session = await getServerSession();
+	let candidatos;
+	if (session) {
+		candidatos = await getData(session && session.user?.email ? session.user.email : "")
+	} else {
+		return redirect("/votaciones");
+	}
 	return (
 		<main>
 			<Header />

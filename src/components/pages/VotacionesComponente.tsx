@@ -7,8 +7,9 @@ import fetchFn from "@/libs/fetchFn";
 import ButtonVot from "@/components/pages/ButtonVot";
 import { useSession } from "next-auth/react";
 import { TailSpin } from "react-loader-spinner";
+import toast from "react-hot-toast";
 
-export default function VotacionesComponente() {
+export default function VotacionesComponente({error}: {error?:string}) {
 	const { data: session, status } = useSession();
 	const [loading, setloading] = useState(true);
 	const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ export default function VotacionesComponente() {
 			}`
 		);
 		if (response.error || response.code !== 200) {
-			return;
+			return ("/votaciones?error=server");
 		}
 		setData(response.data);
 		setloading(false);
@@ -29,6 +30,21 @@ export default function VotacionesComponente() {
 	useEffect(() => {
 		if (status === "authenticated") getData();
 	}, [status]);
+
+	useEffect(()=>{
+		if (error) {
+			if (error === "server") toast.error("Ha ocurrido un error", {id:"1"})
+			router.push("/votaciones")
+		}
+		if (error) {
+			if (error === "e_ccl") toast.error("Usted ya votó a Comite de convivencia laboral", {id:"2"})
+			router.push("/votaciones")
+		}
+		if (error) {
+			if (error === "e_copasst") toast.error("Usted ya votó a la Votación COPASST", {id:"3"})
+			router.push("/votaciones")
+		}
+	}, [])
 
 	return (
 		<main className="back2 w-full h-screen">
@@ -49,13 +65,10 @@ export default function VotacionesComponente() {
 					<div className="main-class justify-center items-center text-center">
 						<h1 className=" text-3xl text-primary font-bold">Votaciones</h1>
 					</div>
-					<div className="bg-default-white mx-auto w-[200px] min-w-[15%] rounded-lg h-[30px] justify-center items-center text-center text-xl  mt-8 lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6 transition-all">
+					<div className="bg-default-white  mx-auto w-[200px] min-w-[15%] rounded-lg h-[30px] justify-center items-center text-center text-xl  mt-8 lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6 transition-all">
 						<h2 className="">Elija la votación:</h2>
 					</div>
-					<div
-						className="flex w-[95%] gap-5 max-w-[1200px]  mx-auto mt-[4%] justify-center items-center rounded-xl 
-							 p-5 mb-10"
-					>
+					<div className="flex w-[95%] sm:grid lg:grid-cols-2 sm:grid-cols-1 flex-col  gap-5 max-w-[1200px]  mx-auto mt-[4%] justify-center items-center rounded-xl p-5 mb-10">
 						{data.map((item: any) => (
 							<ButtonVot
 								disabled={item.estado_voto === "1"}

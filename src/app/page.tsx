@@ -33,7 +33,7 @@ export default async function Index() {
 			<h2 className="text-center text-xl mt-8 text-primary font-bold">
 				Elija un Servicio:
 			</h2>
-			<div className="w-[95%] max-w-[1200px] gap-5 sm:grid lg:grid-cols-3 sm:grid-cols-2 flex flex-col mx-auto mt-4 justify-center items-center rounded-xl p-5">
+			<div className="w-[95%] max-w-[1200px] gap-3 sm:grid lg:grid-cols-3 sm:grid-cols-2 flex flex-col mx-auto mt-4 justify-center items-center rounded-xl p-5">
 				<Button route="/votaciones" text="Votaciones" />
 				<Button
 					route="https://tycho.escuelaing.edu.co/GestionDeCursos/jsp/Inicio.jsp"

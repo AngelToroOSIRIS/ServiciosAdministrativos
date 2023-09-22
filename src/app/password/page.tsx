@@ -8,11 +8,13 @@ export default function Index({ searchParams }: any) {
 	const router = useRouter();
 	return (
 		<>
-			<main className="back3 relative w-full h-screen">
-				<Header/>
-			
+			<main className="bg-[#dfdfdf] lg:back3 relative w-full h-screen">
+				<Header />
+
 				<div className="mt-52 bg-default-white min-w-[250px] mx-auto w-[20%] rounded-lg h-[30px] justify-center items-center text-center text-xl lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6">
-					<h1 className="text-xl text-primary font-bold">Gestione su contraseña:</h1>
+					<h1 className="text-xl text-primary font-bold">
+						Gestione su contraseña:
+					</h1>
 				</div>
 				<div
 					className="w-[95%] max-w-[1200px]  gap-5 sm:grid lg:grid-cols-2 sm:grid-cols-2 flex flex-col mx-auto mt-[4%] justify-center items-center rounded-xl 
@@ -27,10 +29,9 @@ export default function Index({ searchParams }: any) {
 						text="2. Cambie su contraseña"
 					/>
 				</div>
-			
 				<div className="justify-center text-center h-[90px]">
 					<button
-						className="mx-5 mt-[30px] w-[7%] min-w-[70px] max-w-xs h-12 lg:text-base text-center opacity-100 rounded-xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white "
+						className="mx-5 mb-[200px] w-[7%] min-w-[70px] max-w-xs h-12 lg:text-base text-center opacity-100 rounded-xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white "
 						onClick={() => router.push("/")}
 					>
 						Volver
