@@ -8,7 +8,7 @@ export default function Index({ searchParams }: any) {
 	const router = useRouter();
 	return (
 		<>
-			<main className="bg-[#dfdfdf] lg:back3 relative w-full h-screen">
+			<main className="back3 relative w-full h-screen">
 				<Header />
 
 				<div className="mt-52 bg-default-white min-w-[250px] mx-auto w-[20%] rounded-lg h-[30px] justify-center items-center text-center text-xl lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6">

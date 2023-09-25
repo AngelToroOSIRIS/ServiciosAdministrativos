@@ -19,7 +19,7 @@ const ButtonVot = ({ route, text, disabled = false }: Props) => {
 			disabled={disabled}
 			className={
 				disabled
-					? "w-full h-12 text-base rounded-xl lg:text-lg text-dark-gray md:h-12 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] my-3 font-semibold bg-soft-gray brightness-200 hover:none"
+					? "w-full text- h-12 text-base rounded-xl lg:text-lg text-dark-gray md:h-12 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] my-3 font-semibold bg-soft-gray brightness-200 hover:none"
 					: classbtn
 			}
 			onClick={() => router.push(route)}
