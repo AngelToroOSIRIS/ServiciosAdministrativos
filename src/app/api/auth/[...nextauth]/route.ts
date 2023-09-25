@@ -22,8 +22,8 @@ export const authOptions: AuthOptions = {
 		error: "/login/error", // Error code passed in query string as ?error=
 	},
 };
-
-const handler = NextAuth(authOptions);
-
+ // eslint-disable-next-line react-hooks/exhaustive-dep
+const handler = NextAuth(authOptions!);
+ // eslint-disable-next-line react-hooks/exhaustive-dep
 export { handler as GET, handler as POST };
 
