@@ -120,7 +120,7 @@ export default function Candidatos({
 	return (
 		<>
 			<Modal isOpen={IsOpenModal} setIsOpen={setIsOpenModal}>
-				<div className="w-full max-w-[470px] transform overflow-hidden rounded-2xl bg-default-white p-6  align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
+				<div className="w-auto max-w-[470px] transform overflow-hidden rounded-2xl bg-default-white p-4  align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
 					{contenModal === "instrucciones" && (
 						<p>
 							Bienvenido a la <b>{titulo}</b>, recuerde que solo tiene un
@@ -145,7 +145,7 @@ export default function Candidatos({
 
 					<button
 						type="button"
-						className="mt-4 mx-auto justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium"
+						className="mt-5 mx-auto justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium"
 						onClick={() => {
 							if (contenModal === "instrucciones") setIsOpenModal(false);
 							if (contenModal === "completo") router.push("/votaciones");
