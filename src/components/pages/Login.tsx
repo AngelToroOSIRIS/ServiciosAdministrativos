@@ -28,6 +28,7 @@ export default function Login({ searchParams }: any) {
 			}
 			router.push("/login");
 		}
+				  // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<>

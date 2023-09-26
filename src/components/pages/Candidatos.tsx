@@ -53,28 +53,46 @@ export default function Candidatos({
 				{ id: "1" }
 			);
 		}
-		
-		
+
 		setSelected([...selected, candidatos]);
 	};
 
 	const enviarVoto = async () => {
-		const response = await fetchFn(
-				`/${url_votacion}/votar?email=${
-					session && session.user ? session.user.email : ""
-				}`,
-				{
-					method: "POST",
-					body: {
-						candidatos: selected.map((candidato)=>candidato.nroton),
-						idcrp:
-							url_votacion === "ccl" ? 121 : url_votacion === "copasst" && 120,
-						periodo:
-							url_votacion === "ccl" ? "2023-2" : url_votacion === "copasst" && "2023-2",
-					},
-				}
+		if (selected.length === 0)
+			return toast.error("Seleccione las opciones", { id: "5" });
+
+		if (cantidad_votos > 1) {
+			if (selected.length < cantidad_votos) {
+				const votoBlanco = selected.find(
+					(candidato) => candidato.narc === "imblanco"
 				);
-				
+				if (!votoBlanco) {
+					return toast.error(
+						"Debe seleccionar 2 opciones \n o un voto en blanco",
+						{ id: "6" }
+					);
+				}
+			}
+		}
+
+		const response = await fetchFn(
+			`/${url_votacion}/votar?email=${
+				session && session.user ? session.user.email : ""
+			}`,
+			{
+				method: "POST",
+				body: {
+					candidatos: selected.map((candidato) => candidato.nroton),
+					idcrp:
+						url_votacion === "ccl" ? 121 : url_votacion === "copasst" && 120,
+					periodo:
+						url_votacion === "ccl"
+							? "2023-2"
+							: url_votacion === "copasst" && "2023-2",
+				},
+			}
+		);
+
 		if (response.error || response.code !== 200) {
 			return toast.error("No se pudó registrar el voto", {
 				position: "bottom-center",
@@ -85,24 +103,24 @@ export default function Candidatos({
 		setContenModal("completo");
 		setIsOpenModal(true);
 	};
-	
+
 	const setClass = (idCandidato: number) => {
 		const candidatoEncontrado = selected.find(
 			(item) => item.id === idCandidato
-			);
-			
-			return candidatoEncontrado ? classActiveCard : classCard;
-		};
+		);
+
+		return candidatoEncontrado ? classActiveCard : classCard;
+	};
 
 	const classCard =
 		" cursor-pointer flex items-center p-6 text-default-white bg-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
 	const classActiveCard =
-	" cursor-pointer flex items-center p-6 text-default-white bg-dark-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
-	
+		" cursor-pointer flex items-center p-6 text-default-white bg-dark-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
+
 	return (
 		<>
 			<Modal isOpen={IsOpenModal} setIsOpen={setIsOpenModal}>
-				<div className="w-full max-w-md transform overflow-hidden rounded-2xl bg-default-white p-6 text-left align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
+				<div className="w-full max-w-[470px] transform overflow-hidden rounded-2xl bg-default-white p-6  align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
 					{contenModal === "instrucciones" && (
 						<p>
 							Bienvenido a la <b>{titulo}</b>, recuerde que solo tiene un
@@ -111,9 +129,9 @@ export default function Candidatos({
 								{cantidad_votos === 1
 									? "una opción"
 									: `${cantidad_votos} opciones`}{" "}
-								máximo
 							</b>{" "}
-							y darle en el botón <b>Enviar Voto</b>
+							máximo o <b>un voto en blanco</b> y darle en el botón{" "}
+							<b>Enviar Voto</b>
 						</p>
 					)}
 
@@ -127,7 +145,7 @@ export default function Candidatos({
 
 					<button
 						type="button"
-						className="mt-4 justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium"
+						className="mt-4 mx-auto justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium"
 						onClick={() => {
 							if (contenModal === "instrucciones") setIsOpenModal(false);
 							if (contenModal === "completo") router.push("/votaciones");

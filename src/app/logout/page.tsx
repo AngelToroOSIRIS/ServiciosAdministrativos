@@ -9,7 +9,6 @@ export const metadata = {
 };
 
 export default function LogoutPage({
-	params,
 	searchParams,
 }: {
 	params: object;
@@ -20,6 +19,7 @@ export default function LogoutPage({
 		signOut({
 			callbackUrl: error ? `/login?error=${error}` : "/login",
 		});
+		  // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
     return<></>
 

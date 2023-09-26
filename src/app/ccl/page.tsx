@@ -32,12 +32,11 @@ export default async function CclPage() {
 				<h1 className=" text-3xl text-primary font-bold">
 					Votación Comité de Convivencia Laboral
 				</h1>
-				<div className="justify-center m-8 ">
-					<p></p>
+				<div className="justify-center my-5 mx-auto w-[800px]">
 					<p className="text-lg">
-						Bienvenido a la <b>Votación de Comité de Convivencia Laboral</b> ,
+						<b>Votación de Comité de Convivencia Laboral</b>,
 						recuerde que solo tiene un intento de votación, debe escoger una
-						opcin y darle en el botón <b>Enviar Voto</b>
+						opción o <b>un voto en blanco</b> y darle en el botón <b>Enviar Voto</b>
 					</p>
 				</div>
 			</div>

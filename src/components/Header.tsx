@@ -97,7 +97,7 @@ const Header = () => {
 							Proyectos
 						</button>
 					</li>
-					{/* <li>
+					<li>
 						<button
 							className="w-full py-2 mx-3 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
 							onClick={() =>
@@ -106,7 +106,7 @@ const Header = () => {
 						>
 							Descargas
 						</button>
-					</li> */}
+					</li>
 				</ul>
 				<Menu />
 

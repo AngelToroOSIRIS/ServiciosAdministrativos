@@ -1,29 +1,9 @@
-import NextAuth, { AuthOptions, SessionStrategy } from "next-auth";
-import AzureADProvider from "next-auth/providers/azure-ad";
+import NextAuth from "next-auth";
+import { authOptions } from "./auth";
 
-export const authOptions: AuthOptions = {
-	providers: [
-		AzureADProvider({
-			//@ts-ignore
-			clientId: process.env.AZURE_AD_CLIENT_ID,
-			//@ts-ignore
-			clientSecret: process.env.AZURE_AD_CLIENT_SECRET,
-			tenantId: process.env.AZURE_AD_TENANT_ID,
-		}),
-	],
 
-	session: {
-		strategy: "jwt" as SessionStrategy,
-		maxAge: 1 * 60 * 60,
-	},
-	pages: {
-		signIn: "/login",
-		signOut: "/logout",
-		error: "/login/error", // Error code passed in query string as ?error=
-	},
-};
- // eslint-disable-next-line react-hooks/exhaustive-dep
-const handler = NextAuth(authOptions!);
- // eslint-disable-next-line react-hooks/exhaustive-dep
+
+// Export the Next.js handler
+
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
-

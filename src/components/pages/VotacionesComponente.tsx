@@ -29,6 +29,7 @@ export default function VotacionesComponente({error}: {error?:string}) {
 
 	useEffect(() => {
 		if (status === "authenticated") getData();
+				  // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [status]);
 
 	useEffect(()=>{
@@ -44,6 +45,7 @@ export default function VotacionesComponente({error}: {error?:string}) {
 			if (error === "e_copasst") toast.error("Usted ya votó a la Votación COPASST", {id:"3"})
 			router.push("/votaciones")
 		}
+				  // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return (
