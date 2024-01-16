@@ -4,16 +4,28 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 interface Props {
-	route: string;
+	route?: string;
+	onClick?: any;
 	text: string;
+	disabled?: boolean;
 }
 
-const Button = ({ route, text }: Props) => {
+const Button = ({ route, text, onClick, disabled = false }: Props) => {
 	const router = useRouter();
+	const classbtn =
+		"w-full h-11 border-2 slect-none justify-center items-center rounded-xl text-base font-medium items-center normal-shadow hover:font-semibold border-borders-light hover:border-primary bg-default-white hover:text-primary transition-all";
 	return (
 		<button
-			className="w-full h-12 rounded-xl xl:text-lg text-base  md:h-12 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]  bg-default-white my-2 font-semibold text-primary hover:bg-primary hover:text-default-white"
-			onClick={() => router.push(route)}
+			disabled={disabled}
+			className={
+				disabled
+					? "w-full h-11 border-2 select-none rounded-xl text-base normal-shadow text-borders opacity-50 hover:none transition-all"
+					: classbtn
+			}
+			onClick={() => {
+				if (onClick) return onClick();
+				if (route) return router.push(route);
+			}}
 		>
 			{text}
 		</button>
@@ -21,3 +33,4 @@ const Button = ({ route, text }: Props) => {
 };
 
 export default Button;
+

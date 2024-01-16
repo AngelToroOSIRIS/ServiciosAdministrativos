@@ -2,42 +2,42 @@
 
 import Header from "@/components/Header";
 import { useRouter } from "next/navigation";
-import Button from "@/components/Button";
+import OptionCards from "@/components/OptionCards";
+import Footer from "@/components/Footer";
 
 export default function Index({ searchParams }: any) {
 	const router = useRouter();
 	return (
 		<>
-			<main className="back3 relative w-full h-screen">
+			<main className="margin-header">
 				<Header />
 
-				<div className="mt-52 bg-default-white min-w-[250px] mx-auto w-[20%] rounded-lg h-[30px] justify-center items-center text-center text-xl lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6">
-					<h1 className="text-xl text-primary font-bold">
-						Gestione su contraseña:
-					</h1>
-				</div>
-				<div
-					className="w-[95%] max-w-[1200px]  gap-5 sm:grid lg:grid-cols-2 sm:grid-cols-2 flex flex-col mx-auto mt-[4%] justify-center items-center rounded-xl 
-					 p-5"
-				>
-					<Button
+				<h1 className="text-3xl text-center mt-10 text-primary font-bold">
+					Gestione su contraseña:
+				</h1>
+				<div className="mx-auto w-[95%] max-w-[1500px] gap-8 mt-10 flex flex-wrap justify-center">
+					<OptionCards
+						text="Manual para cambio de contraseña"
+						icon="file-earmark-lock2"
 						route="https://gestorpasswd.escuelaing.edu.co/Manual/escuela/1_ManualUsuario.pdf"
-						text="1. Consulte el manual para gestionar el cambio de contraseña"
 					/>
-					<Button
-						route="https://gestorpasswd.escuelaing.edu.co"
-						text="2. Cambie su contraseña"
+					<OptionCards
+						text="Cambiar su contraseña"
+						icon="key"
+						route="https://gestorpasswd.escuelaing.edu.co/Portal/osiris/LoginForm"
 					/>
 				</div>
-				<div className="justify-center text-center h-[90px]">
+				<div className="justify-center text-center mt-10 h-[90px]">
 					<button
-						className="mx-5 mb-[200px] w-[7%] min-w-[70px] max-w-xs h-12 lg:text-base text-center opacity-100 rounded-xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white "
+						className="mx-5 w-[125px] max-w-xs h-12 lg:text-base text-center opacity-100 rounded-xl normal-shadow bg-default-white font-semibold text-primary hover:bg-primary hover:text-default-white"
 						onClick={() => router.push("/")}
 					>
 						Volver
 					</button>
 				</div>
 			</main>
+			<Footer	 />
 		</>
 	);
 }
+

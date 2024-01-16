@@ -12,21 +12,22 @@ interface Props {
 const ButtonVot = ({ route, text, disabled = false }: Props) => {
 	const router = useRouter();
 	const classbtn =
-	"w-full h-12 text-base rounded-xl lg:text-lg md:h-12 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white my-3 font-semibold text-primary hover:bg-primary hover:text-default-white";
-
+		"w-[400px] h-[130px] text-base rounded-xl transition-all 2 card-shadow bg-default-white my-3 font-semibold hover:text-primary";
 	return (
 		<button
 			disabled={disabled}
 			className={
 				disabled
-					? "w-full text- h-12 text-base rounded-xl lg:text-lg text-dark-gray md:h-12 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] my-3 font-semibold bg-soft-gray brightness-200 hover:none"
+					? "w-[400px] h-[130px] text-base rounded-xl text-default-400 my-3 normal-shadow font-semibold bg-borders-light hover:none"
 					: classbtn
 			}
 			onClick={() => router.push(route)}
 		>
-			{text}
+			<i className="bi bi-check2-square text-3xl"></i>
+			<p className="text-xl font-medium mt-2">{text}</p>
 		</button>
 	);
 };
 
 export default ButtonVot;
+

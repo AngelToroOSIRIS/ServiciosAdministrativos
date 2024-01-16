@@ -1,15 +1,16 @@
 import type { Config } from "tailwindcss";
+const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
 	content: [
 		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 	],
 
-		
-
 	theme: {
+		extend: {},
 		colors: {
 			"default-white": "#f5f5f5",
 			"soft-white": "#f9f9f9",
@@ -44,6 +45,19 @@ const config: Config = {
 			"input-shadow": "0px 0px 0px 3px #771ccc41",
 		},
 	},
-	plugins: [],
+	plugins: [nextui({
+		themes: {
+		  light: {
+			colors: {
+			  primary: { DEFAULT: "#990000", foreground: "#ffff" },
+  
+			  secondary: { DEFAULT: "#540000", foreground: "#ffff" },
+			  danger: "#990000",
+			  focus: "#990000",
+			},
+		  },
+		},
+	  })],
 };
 export default config;
+

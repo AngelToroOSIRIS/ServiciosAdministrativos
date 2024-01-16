@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 import { TailSpin } from "react-loader-spinner";
 import toast from "react-hot-toast";
 
-export default function VotacionesComponente({error}: {error?:string}) {
+export default function VotacionesComponente({ error }: { error?: string }) {
 	const { data: session, status } = useSession();
 	const [loading, setloading] = useState(true);
 	const [data, setData] = useState([]);
@@ -21,7 +21,7 @@ export default function VotacionesComponente({error}: {error?:string}) {
 			}`
 		);
 		if (response.error || response.code !== 200) {
-			return ("/votaciones?error=server");
+			return "/votaciones?error=server";
 		}
 		setData(response.data);
 		setloading(false);
@@ -29,27 +29,31 @@ export default function VotacionesComponente({error}: {error?:string}) {
 
 	useEffect(() => {
 		if (status === "authenticated") getData();
-				  // eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [status]);
 
-	useEffect(()=>{
+	useEffect(() => {
 		if (error) {
-			if (error === "server") toast.error("Ha ocurrido un error", {id:"1"})
-			router.push("/votaciones")
+			if (error === "server") toast.error("Ha ocurrido un error", { id: "1" });
+			router.push("/votaciones");
 		}
 		if (error) {
-			if (error === "e_ccl") toast.error("Usted ya votó a Comite de convivencia laboral", {id:"2"})
-			router.push("/votaciones")
+			if (error === "e_ccl")
+				toast.error("Usted ya votó a Comite de convivencia laboral", {
+					id: "2",
+				});
+			router.push("/votaciones");
 		}
 		if (error) {
-			if (error === "e_copasst") toast.error("Usted ya votó a la Votación COPASST", {id:"3"})
-			router.push("/votaciones")
+			if (error === "e_copasst")
+				toast.error("Usted ya votó a la Votación COPASST", { id: "3" });
+			router.push("/votaciones");
 		}
-				  // eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
-		<main className="back2 w-full h-screen">
+		<>
 			<Header />
 			{loading && (
 				<div className="absolute ml-[40%] lg:ml-[47%] mt-[25%] lg:mt-[7%]  justify-center px-auto items-center ">
@@ -64,13 +68,10 @@ export default function VotacionesComponente({error}: {error?:string}) {
 			)}
 			{!loading && (
 				<>
-					<div className="main-class justify-center items-center text-center">
-						<h1 className=" text-3xl text-primary font-bold">Votaciones</h1>
+					<div className="mx-auto rounded-lg justify-center items-center text-center text-3xl text-primary font-bold mt-6 transition-all">
+						<h2 className="">Elija la votación</h2>
 					</div>
-					<div className="bg-default-white  mx-auto w-[200px] min-w-[15%] rounded-lg h-[30px] justify-center items-center text-center text-xl  mt-8 lg:shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] text-primary font-bold m-6 transition-all">
-						<h2 className="">Elija la votación:</h2>
-					</div>
-					<div className="flex w-[95%] sm:grid lg:grid-cols-2 sm:grid-cols-1 flex-col  gap-5 max-w-[1200px]  mx-auto mt-[4%] justify-center items-center rounded-xl p-5 mb-10">
+					<div className="flex flex-wrap justify-center gap-8 max-w-[1200px] mx-auto mt-10 items-center rounded-xl p-5 mb-10">
 						{data.map((item: any) => (
 							<ButtonVot
 								disabled={item.estado_voto === "1"}
@@ -82,7 +83,7 @@ export default function VotacionesComponente({error}: {error?:string}) {
 					</div>
 					<div className=" justify-center text-center mt-[2%]">
 						<button
-							className="mx-5 w-[5%] min-w-[70px] h-11 font-semibold shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-default-white rounded-lg  text-primary hover:text-default-white hover:bg-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
+							className="mx-5 w-[125px] h-11 font-semibold normal-shadow bg-default-white rounded-lg text-primary hover:text-default-white hover:bg-primary hover:border-transparent"
 							onClick={() => router.push("/")}
 						>
 							Volver
@@ -90,6 +91,7 @@ export default function VotacionesComponente({error}: {error?:string}) {
 					</div>
 				</>
 			)}
-		</main>
+		</>
 	);
 }
+

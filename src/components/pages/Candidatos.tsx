@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import { RadioGroup } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
+import Button from "../Button";
 
 interface Props {
 	candidatos: Candidato[];
@@ -113,39 +114,43 @@ export default function Candidatos({
 	};
 
 	const classCard =
-		" cursor-pointer flex items-center p-6 text-default-white bg-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
+		" cursor-pointer flex items-center p-6 text-default-white bg-primary font-medium text-center w-full h-[140px] transition-all rounded-xl strong-shadow";
 	const classActiveCard =
-		" cursor-pointer flex items-center p-6 text-default-white bg-dark-primary font-medium text-center w-full h-[140px] rounded-xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]";
+		" cursor-pointer flex items-center p-6 text-default-white bg-dark-primary font-medium text-center w-full h-[140px] transition-all rounded-xl strong-shadow";
 
 	return (
 		<>
-			<Modal isOpen={IsOpenModal} setIsOpen={setIsOpenModal}>
-				<div className="w-auto max-w-[470px] transform overflow-hidden rounded-2xl bg-default-white p-4  align-middle shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] transition-all">
-					{contenModal === "instrucciones" && (
-						<p>
-							Bienvenido a la <b>{titulo}</b>, recuerde que solo tiene un
-							intento de votación, debe escoger{" "}
-							<b>
-								{cantidad_votos === 1
-									? "una opción"
-									: `${cantidad_votos} opciones`}{" "}
-							</b>{" "}
-							máximo o <b>un voto en blanco</b> y darle en el botón{" "}
-							<b>Enviar Voto</b>
-						</p>
-					)}
+			<Modal
+				isOpen={IsOpenModal}
+				classContainer="max-w-[500px]"
+				setIsOpen={setIsOpenModal}
+			>
+				{contenModal === "instrucciones" && (
+					<p className="py-4 px-2">
+						Bienvenido a la <b>{titulo}</b>, recuerde que solo tiene un intento
+						de votación, debe escoger{" "}
+						<b>
+							{cantidad_votos === 1
+								? "una opción"
+								: `${cantidad_votos} opciones`}{" "}
+						</b>{" "}
+						máximo o <b>un voto en blanco</b> y darle en el botón{" "}
+						<b>Enviar Voto</b>
+					</p>
+				)}
 
-					{contenModal === "completo" && (
-						<p>
-							Su voto a sido guardado con éxito <br />
-							<b>Gracias por votar!</b>
-							<br />
-						</p>
-					)}
+				{contenModal === "completo" && (
+					<p className="py-4 px-2 text-center">
+						Su voto a sido guardado con éxito <br />
+						<b>Gracias por votar!</b>
+						<br />
+					</p>
+				)}
 
+				<div className="flex-center">
 					<button
 						type="button"
-						className="mt-5 mx-auto justify-center rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium"
+						className="mt-5 rounded-md border bg-primary text-default-white px-4 py-2 text-sm font-medium"
 						onClick={() => {
 							if (contenModal === "instrucciones") setIsOpenModal(false);
 							if (contenModal === "completo") router.push("/votaciones");
@@ -191,20 +196,11 @@ export default function Candidatos({
 				</div>
 			</RadioGroup>
 
-			<div className="flex content-center mb-32 justify-center mx-auto mt-5 w-[80%]">
-				<button
-					className=" mt-[30px] mx-5 max-w-xs w-[25%] h-12 lg:w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-					onClick={enviarVoto}
-				>
-					Enviar voto
-				</button>
-				<button
-					className=" mt-[30px] mx-5 max-w-xs w-[25%] mb-[15%] lg:mb-[2%] h-12 lg:w-[23%] bg-default-white rounded-lg text-primary border-2 border-primary hover:bg-primary hover:text-default-white hover:border-primary hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"
-					onClick={() => router.push("/votaciones")}
-				>
-					Volver
-				</button>
+			<div className="flex justify-between gap-14 mx-auto mt-5 w-[30%]">
+				<Button text="Enviar Voto" onClick={enviarVoto} />
+				<Button disabled={false} text="Volver" route="/votaciones" />
 			</div>
 		</>
 	);
 }
+
