@@ -21,7 +21,7 @@ const Footer = () => {
 					/>
 				</div>
 				<p className="mt-4 text-sm text-gray font-semibold">
-					Todos los derechos reservados ©2023 - Escuela Colombiana de Ingeniería
+					Todos los derechos reservados ©2024 - Escuela Colombiana de Ingeniería
 					Julio Garavito. Personería Jurídica 086 de enero 19 de 1973.
 					Renovación de Acreditación Institucional de Alta Calidad. Resolución
 					002710 del 18 de marzo de 2019 (vigencia de 6 años). Vigilada por

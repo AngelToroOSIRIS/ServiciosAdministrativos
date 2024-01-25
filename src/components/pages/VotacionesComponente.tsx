@@ -14,6 +14,7 @@ export default function VotacionesComponente({ error }: { error?: string }) {
 	const [loading, setloading] = useState(true);
 	const [data, setData] = useState([]);
 	const router = useRouter();
+
 	const getData = async () => {
 		const response = await fetchFn(
 			`/vot_act?estado=1&email=${
@@ -29,7 +30,6 @@ export default function VotacionesComponente({ error }: { error?: string }) {
 
 	useEffect(() => {
 		if (status === "authenticated") getData();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [status]);
 
 	useEffect(() => {
@@ -49,7 +49,6 @@ export default function VotacionesComponente({ error }: { error?: string }) {
 				toast.error("Usted ya votó a la Votación COPASST", { id: "3" });
 			router.push("/votaciones");
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

@@ -196,7 +196,7 @@ export default function Candidatos({
 				</div>
 			</RadioGroup>
 
-			<div className="flex justify-between gap-14 mx-auto mt-5 w-[30%]">
+			<div className="flex justify-between gap-14 mx-auto my-10 w-[300px]">
 				<Button text="Enviar Voto" onClick={enviarVoto} />
 				<Button disabled={false} text="Volver" route="/votaciones" />
 			</div>
